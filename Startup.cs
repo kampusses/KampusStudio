@@ -14,9 +14,21 @@ namespace kampus
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        
+        /*
+        QUESTA CLASSE VIENE SOSTITUITA PERCHE' NON FUNZIONA CON LA VERSIONE 3.0 DI DOTNET
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
         }
+        */
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+        }
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -30,17 +42,12 @@ namespace kampus
 
             app.UseRouting();
 
+            /* QUESTO METODO E' COMPATIBILE CON LA VERSIONE 3.0 DI DOTNET, DIVERSA DA QUELLA INDICATA NEL VIDEO */
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    string nome = context.Request.Query["nome"];
-                    await context.Response.WriteAsync($"Ciao {nome}");
-                    /* qui metto un commento per vedere se
-                       facendo un nuovo commit da una postazione
-                       diversa, trovo l'aggiornamento su github */
-                });
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }
