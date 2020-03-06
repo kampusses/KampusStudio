@@ -36,6 +36,9 @@ namespace kampus
                 {
                     string nome = context.Request.Query["nome"];
                     await context.Response.WriteAsync($"Ciao {nome}");
+                    /* qui metto un commento per vedere se
+                       facendo un nuovo commit da una postazione
+                       diversa, trovo l'aggiornamento su github */
                 });
             });
         }
