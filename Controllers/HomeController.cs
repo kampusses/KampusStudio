@@ -6,6 +6,7 @@ namespace kampus.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Titolo = "Kampus Studio";
             return View();
         }
 
