@@ -1,0 +1,2 @@
+Nel controller ComuniController.cs inserire il codice per visualizzare il nome del comune nel TITLE della view
+Impostare l'attributo ACTIVE sulle voci di menù per enfatizzare la voce cliccata

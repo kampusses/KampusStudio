@@ -13,7 +13,7 @@ namespace kampus.Controllers
         public IActionResult Dettaglio(string id)
         {
             ViewBag.Titolo = "Kampus Studio - Comune di XXXX";
-            /* Inserire il codice per inserire il nome del comune nel TITLE della pagina */
+            /* Aggiungere il codice per inserire il nome del comune nel TITLE della pagina */
             return View();
         }
     }

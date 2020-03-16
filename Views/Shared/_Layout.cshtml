@@ -16,16 +16,13 @@
         <div id="my-nav" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" asp-action="Index" asp-controller="Home">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Comuni</a>
+                    <a class="nav-link" asp-action="Index" asp-controller="Comuni" tabindex="-1" aria-disabled="true">Comuni</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Funzione 1</a>
-                </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Funzione 2</a>
+                    <a class="nav-link" asp-action="Dettaglio" asp-controller="Comuni" asp-route-id="5" tabindex="-1" aria-disabled="true">Comune di...</a>
                 </li>
             </ul>
         </div>
