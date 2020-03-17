@@ -1,1 +1,25 @@
-<h1>Qui viene visualizzato l'elenco completo dei comuni</h1>
+<h1>Elenco comuni</h1>
+@for (int i = 1; i <= 10; i++)
+{
+<div class="row">
+    <div class="col-md-1">
+        <img src="~/logo.gif" width="80">
+    </div>
+    <div class="col-md-5">
+        <h2>Nome Comune</h2>
+        <abitanti>Abitanti: 10.000</abitanti>
+    </div>
+    <div class="col-md-2">
+        <regione>Regione</regione><br />
+        <provincia>Provincia</provincia>
+    </div>
+    <div class="col-md-2">
+        <cap>CAP: 76016</cap><br />
+        <prefisso>Prefisso: 0883</prefisso>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-outline-primary" asp-action="Dettaglio" asp-route-id="5">Comune di XXX</a>
+    </div>
+</div>
+<hr />
+}
