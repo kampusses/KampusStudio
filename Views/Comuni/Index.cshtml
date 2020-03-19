@@ -1,26 +1,27 @@
+@model List<ComuneViewModel>          // serve a rendere fortemente tipizzata la view
 <h1>Elenco comuni</h1>
 <div class="col-md-12"><h2>Qui devi inserire tutti i combo box per le varie ricerche contestuali</h2></div>
 <hr />
-@for (int i = 1; i <= 10; i++)
+@foreach (ComuneViewModel comune in Model)
 {
 <div class="row">
     <div class="col-md-1">
-        <img src="~/logo.gif" width="80">
+        @comune.ripartizioneGeografica
     </div>
     <div class="col-md-4">
-        <a asp-action="Dettaglio" asp-route-id="5">Nome Comune</a><br />
-        <abitanti>Abitanti: 10.000</abitanti>
+        <a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.nomeComune</a><br />
+        <abitanti>Abitanti: @comune.abitanti</abitanti>
     </div>
     <div class="col-md-3">
-        <regione>Regione</regione><br />
-        <provincia>Provincia</provincia>
+        <regione>Cod.Regione @comune.regione</regione><br />
+        <provincia>Cod.Provincia @comune.provincia</provincia>
     </div>
     <div class="col-md-2">
-        <cap>CAP: 76016</cap><br />
-        <prefisso>Prefisso: 0883</prefisso>
+        <cap>CAP: @comune.cap</cap><br />
+        <prefisso>Prefisso: @comune.prefisso</prefisso>
     </div>
     <div class="col-md-2">
-        <a class="btn btn-outline-primary" asp-action="Dettaglio" asp-route-id="5">Visualizza</a>
+        <a class="btn btn-outline-primary" asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">Visualizza</a>
     </div>
 </div>
 <hr />

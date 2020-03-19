@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using KampusStudio.Models.Services.Application;
+using KampusStudio.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace kampus.Controllers
@@ -7,7 +10,9 @@ namespace kampus.Controllers
         public IActionResult Index()
         {
             ViewBag.Titolo = "Kampus Studio - Elenco comuni";
-            return View();
+            var comuneService = new ComuneService();
+            List<ComuneViewModel> comuni = comuneService.GetComune();
+            return View(comuni);
         }
 
         public IActionResult Dettaglio(string id)
