@@ -4,25 +4,25 @@
 <hr />
 @foreach (ComuneViewModel comune in Model)
 {
-<div class="row">
-    <div class="col-md-1">
-        @comune.ripartizioneGeografica
+    <div class="row">
+        <div class="col-md-1">
+            <a href="#"><img src="~/Italia/@(comune.ripartizioneGeografica).jpg" width="50" title="@comune.ripartizioneGeografica"></a>
+        </div>
+        <div class="col-md-4">
+            <a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.nomeComune</a> (@comune.codiceCatastale)<br />
+            <abitanti>Abitanti: @comune.abitanti</abitanti>
+        </div>
+        <div class="col-md-3">
+            <regione>Cod.Regione @comune.regione</regione><br />
+            <provincia>Cod.Provincia @comune.provincia</provincia>
+        </div>
+        <div class="col-md-2">
+            <cap>CAP: @comune.cap</cap><br />
+            <prefisso>Prefisso: @comune.prefisso</prefisso>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-outline-primary" asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">Visualizza</a>
+        </div>
     </div>
-    <div class="col-md-4">
-        <a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.nomeComune</a><br />
-        <abitanti>Abitanti: @comune.abitanti</abitanti>
-    </div>
-    <div class="col-md-3">
-        <regione>Cod.Regione @comune.regione</regione><br />
-        <provincia>Cod.Provincia @comune.provincia</provincia>
-    </div>
-    <div class="col-md-2">
-        <cap>CAP: @comune.cap</cap><br />
-        <prefisso>Prefisso: @comune.prefisso</prefisso>
-    </div>
-    <div class="col-md-2">
-        <a class="btn btn-outline-primary" asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">Visualizza</a>
-    </div>
-</div>
-<hr />
+    <hr />
 }
