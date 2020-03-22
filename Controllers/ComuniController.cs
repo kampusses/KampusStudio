@@ -11,15 +11,16 @@ namespace kampus.Controllers
         {
             ViewBag.Titolo = "Kampus Studio - Elenco comuni";
             var comuneService = new ComuneService();
-            List<ComuneViewModel> comuni = comuneService.GetComune();
+            List<ComuneViewModel> comuni = comuneService.GetComuni();
             return View(comuni);
         }
 
         public IActionResult Dettaglio(string id)
         {
-            ViewBag.Titolo = "Kampus Studio - Comune di XXXX";
-            /* Aggiungere il codice per inserire il nome del comune nel TITLE della pagina */
-            return View();
+            var comuneService = new ComuneService();
+            ComuneViewModel comune = comuneService.GetComune(id);
+            ViewBag.Titolo = "Kampus Studio - Comune di " + comune.nomeComune;
+            return View(comune);
         }
     }
 }

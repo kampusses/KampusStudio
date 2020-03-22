@@ -7,7 +7,7 @@ namespace KampusStudio.Models.Services.Application
     public class ComuneService
     {
         // codice che popola 20 istanze nel viewModel
-        public List<ComuneViewModel> GetComune()
+        public List<ComuneViewModel> GetComuni()
         {
             var elencoComuni = new List<ComuneViewModel>();
             for (int i = 1; i <= 20; i++)
@@ -26,6 +26,22 @@ namespace KampusStudio.Models.Services.Application
                 elencoComuni.Add(comune);
             }
             return elencoComuni;
+        }
+
+        public ComuneViewModel GetComune(string id)
+        {
+            var comune = new ComuneViewModel
+            {
+                codiceCatastale = id,
+                nomeComune = "Margherita di Savoia",
+                regione = 10,
+                provincia = 5,
+                ripartizioneGeografica = (RipartizioneGeografica) 5,
+                abitanti = 11000,
+                prefisso = "0883",
+                cap = "76016"
+            }; 
+            return comune;
         }
     }
 }
