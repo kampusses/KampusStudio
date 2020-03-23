@@ -7,17 +7,23 @@ namespace kampus.Controllers
 {
     public class ComuniController : Controller
     {
+        private readonly IComuneService comuneService;
+        public ComuniController(IComuneService comuneService)
+        {
+            this.comuneService = comuneService;
+
+        }
         public IActionResult Index()
         {
             ViewBag.Titolo = "Kampus Studio - Elenco comuni";
-            var comuneService = new ComuneService();
+
             List<ComuneViewModel> comuni = comuneService.GetComuni();
             return View(comuni);
         }
 
         public IActionResult Dettaglio(string id)
         {
-            var comuneService = new ComuneService();
+
             ComuneViewModel comune = comuneService.GetComune(id);
             ViewBag.Titolo = "Kampus Studio - Comune di " + comune.nomeComune;
             return View(comune);

@@ -4,7 +4,7 @@ using KampusStudio.Models.ViewModels;
 
 namespace KampusStudio.Models.Services.Application
 {
-    public class ComuneService
+    public class ComuneService : IComuneService
     {
         // codice che popola 20 istanze nel viewModel
         public List<ComuneViewModel> GetComuni()
