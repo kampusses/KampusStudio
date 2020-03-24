@@ -1,3 +1,6 @@
+using System;
+using System.Data;
+
 namespace KampusStudio.Models.ViewModels
 {
     public class ComuneViewModel
@@ -10,5 +13,21 @@ namespace KampusStudio.Models.ViewModels
         public int abitanti {get; set;}
         public string prefisso {get; set;}
         public string cap {get; set;}
+
+        public static ComuneViewModel FromDataRow(DataRow comuneRow)
+        {
+            var comuneViewModel = new ComuneViewModel
+            {
+                codiceCatastale = (string) comuneRow["codiceCatastale"],
+                nomeComune = (string) comuneRow["nomeComune"],
+                regione = (int) comuneRow["regione"],
+                provincia = (int) comuneRow["provincia"],
+                ripartizioneGeografica = (RipartizioneGeografica) comuneRow["ripartizioneGeografica"],
+                abitanti = (int) comuneRow["abitanti"],
+                prefisso = (string) comuneRow["prefisso"],
+                cap = (string) comuneRow["cap"]
+            };
+            return comuneViewModel;
+        }
     }
 }

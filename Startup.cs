@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using KampusStudio.Models.Services.Application;
+using KampusStudio.Models.Services.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -27,7 +28,8 @@ namespace kampus
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddTransient<IComuneService, ComuneService>();  // Per far accettare le interfacce
+            services.AddTransient<IComuneService, AdoNetComuneService>();  // Per far accettare le interfacce
+            services.AddTransient<IDatabaseAccessor, MySqlDatabaseAccessor>();
         }
 
 
