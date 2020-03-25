@@ -19,7 +19,7 @@ namespace KampusStudio.Models.Services.Application
 
         public List<ComuneViewModel> GetComuni()
         {
-            string query = "SELECT * FROM comuni";
+            string query = "SELECT * FROM comuni ORDER BY nomeComune LIMIT 20";
             DataSet dataSet = db.Query(query);
             var dataTable = dataSet.Tables[0];
             var comuneList = new List<ComuneViewModel>();

@@ -9,7 +9,7 @@
             <a href="#"><img src="~/Italia/@(comune.ripartizioneGeografica).jpg" width="50" title="@comune.ripartizioneGeografica"></a>
         </div>
         <div class="col-md-4">
-            <a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.nomeComune</a> (@comune.codiceCatastale)<br />
+            <a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.nomeComune</a> (<a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.codiceCatastale</a>)<br />
             <abitanti>Abitanti: @comune.abitanti</abitanti>
         </div>
         <div class="col-md-3">

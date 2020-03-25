@@ -22,7 +22,7 @@ namespace KampusStudio.Models.ViewModels
                 nomeComune = (string) comuneRow["nomeComune"],
                 regione = (int) comuneRow["regione"],
                 provincia = (int) comuneRow["provincia"],
-                ripartizioneGeografica = (RipartizioneGeografica) comuneRow["ripartizioneGeografica"],
+                ripartizioneGeografica = (RipartizioneGeografica) comuneRow["ripartizioneGeografica"] - 1,
                 abitanti = (int) comuneRow["abitanti"],
                 prefisso = (string) comuneRow["prefisso"],
                 cap = (string) comuneRow["cap"]
