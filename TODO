@@ -1,3 +1,5 @@
 FATTO - Nel controller ComuniController.cs inserire il codice per visualizzare il nome del comune nel TITLE della view
 Impostare l'attributo ACTIVE sulle voci di menù per enfatizzare la voce cliccata
 Nella view che elenca i comuni, inserire in cima alla pagina tutti gli elementi di ricerca contestuale
+Nella tabella 'comuni' inserire le informazioni del prefisso, del cap e inserire nuovi campi sulla codifica ISTAT del comune
+Eliminare il campo 'ripartizioneGeografica' dalla tabella 'comuni' ed inserirlo nella tabella 'regioni'
