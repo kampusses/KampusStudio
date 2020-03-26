@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using KampusStudio.Models.Services.Application;
 using KampusStudio.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -13,18 +14,18 @@ namespace kampus.Controllers
             this.comuneService = comuneService;
 
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ViewBag.Titolo = "Kampus Studio - Elenco comuni";
 
-            List<ComuneViewModel> comuni = comuneService.GetComuni();
+            List<ComuneViewModel> comuni = await comuneService.GetComuniAsync();
             return View(comuni);
         }
 
-        public IActionResult Dettaglio(string id)
+        public async Task<IActionResult> Dettaglio(string id)
         {
 
-            ComuneViewModel comune = comuneService.GetComune(id);
+            ComuneViewModel comune = await comuneService.GetComuneAsync(id);
             ViewBag.Titolo = "Kampus Studio - Comune di " + comune.nomeComune;
             return View(comune);
         }

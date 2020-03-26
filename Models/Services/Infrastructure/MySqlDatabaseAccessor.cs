@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace KampusStudio.Models.Services.Infrastructure
 {
     public class MySqlDatabaseAccessor : IDatabaseAccessor
     {
-        public DataSet Query(FormattableString formattableQuery)
+        public async Task<DataSet> QueryAsync(FormattableString formattableQuery)
         {
             /* INIZIO codice che serve per evitare la SQL-injection */
             var queryArguments = formattableQuery.GetArguments();
@@ -23,11 +24,11 @@ namespace KampusStudio.Models.Services.Infrastructure
 
             using(var conn = new MySqlConnection("Server=localhost;Database=kampus;Uid=root;Pwd=;"))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 using(var cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddRange(mySqlParameters.ToArray());
-                    using(var reader = cmd.ExecuteReader())
+                    using(var reader = await cmd.ExecuteReaderAsync())
                     {
                         var dataSet = new DataSet();
                         //dataSet.EnforceConstraints = false;  <-- abilita solo se non funziona il provider
