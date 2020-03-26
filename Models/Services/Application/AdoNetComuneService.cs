@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using KampusStudio.Models.Services.Infrastructure;
@@ -14,12 +15,21 @@ namespace KampusStudio.Models.Services.Application
         }
         public ComuneViewModel GetComune(string id)
         {
-            throw new System.NotImplementedException();
+            FormattableString query = $"SELECT * FROM comuni WHERE codiceCatastale={id}";
+            DataSet dataSet = db.Query(query);
+            var comuneTable = dataSet.Tables[0];
+            if (comuneTable.Rows.Count != 1)
+            {
+                throw new InvalidOperationException($"Mi aspettavo che venisse restituita solo una riga della tabella {id}");
+            }
+            var comuneRow = comuneTable.Rows[0];
+            var comuneViewModel = ComuneViewModel.FromDataRow(comuneRow);
+            return comuneViewModel;
         }
 
         public List<ComuneViewModel> GetComuni()
         {
-            string query = "SELECT * FROM comuni ORDER BY nomeComune LIMIT 20";
+            FormattableString query = $"SELECT * FROM comuni ORDER BY nomeComune LIMIT 20;";
             DataSet dataSet = db.Query(query);
             var dataTable = dataSet.Tables[0];
             var comuneList = new List<ComuneViewModel>();
