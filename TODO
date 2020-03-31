@@ -1,10 +1,11 @@
 Impostare l'attributo ACTIVE sulle voci di menù per enfatizzare la voce cliccata
 Nella view che elenca i comuni, inserire in cima alla pagina tutti gli elementi di ricerca contestuale
+Nella view che elenca le regioni, inserire in cima alla pagina tutti gli elementi di ricerca contestuale
 Nella tabella 'comuni' inserire le informazioni del prefisso, del cap e inserire nuovi campi sulla codifica ISTAT del comune
 Nella tabella 'comuni' inserire le informazioni corrette del numero degli abitanti perchè troncato nella prina importazione
 Eliminare il campo 'ripartizioneGeografica' dalla tabella 'comuni' ed inserirlo nella tabella 'regioni'
-
-
+Nella pagina 'Elenco Comuni' e 'Dettaglio Comuni' inserire il nome della regione e della provincia anziché i rispettivi codici
+Nella pagina 'Elenco Regioni' 'Dettaglio regioni' inserire il nome del capoluogo e il numero degli abitanti, ecc. anziché i rispettivi segnaposto
 
 FATTO
 Nel controller ComuniController.cs inserire il codice per visualizzare il nome del comune nel TITLE della view

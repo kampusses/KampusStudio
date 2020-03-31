@@ -12,19 +12,16 @@ namespace kampus.Controllers
         public ComuniController(IComuneService comuneService)
         {
             this.comuneService = comuneService;
-
         }
         public async Task<IActionResult> Index()
         {
             ViewBag.Titolo = "Kampus Studio - Elenco comuni";
-
             List<ComuneViewModel> comuni = await comuneService.GetComuniAsync();
             return View(comuni);
         }
 
         public async Task<IActionResult> Dettaglio(string id)
         {
-
             ComuneViewModel comune = await comuneService.GetComuneAsync(id);
             ViewBag.Titolo = "Kampus Studio - Comune di " + comune.nomeComune;
             return View(comune);

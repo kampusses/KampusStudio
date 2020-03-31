@@ -20,7 +20,7 @@ namespace KampusStudio.Models.Services.Infrastructure
                 queryArguments[i] = "@" + i;
             }
             string query = formattableQuery.ToString();
-            /* INIZIO codice che serve per evitare la SQL-injection */
+            /* FINE codice che serve per evitare la SQL-injection */
 
             using(var conn = new MySqlConnection("Server=localhost;Database=kampus;Uid=root;Pwd=;"))
             {
