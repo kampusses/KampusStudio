@@ -13,7 +13,7 @@
             <abitanti>Abitanti: @comune.abitanti</abitanti>
         </div>
         <div class="col-md-3">
-            <regione>Regione: @comune.regione.nomeRegione</regione><br />
+            <regione>Regione: <a asp-controller = "Regioni" asp-action="Dettaglio" asp-route-id="@comune.regione.codiceRegione">@comune.regione.nomeRegione</a></regione><br />
             <provincia>Cod.Provincia @comune.provincia</provincia>
         </div>
         <div class="col-md-2">

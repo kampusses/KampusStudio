@@ -30,6 +30,7 @@ namespace kampus
             services.AddControllersWithViews();
             services.AddTransient<IComuneService, AdoNetComuneService>();  // Per far accettare le interfacce
             services.AddTransient<IRegioneService, AdoNetRegioneService>();  // Per far accettare le interfacce
+            services.AddTransient<IProvinciaService, AdoNetProvinciaService>();  // Per far accettare le interfacce            
             services.AddTransient<IDatabaseAccessor, MySqlDatabaseAccessor>();
         }
 

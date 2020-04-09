@@ -49,6 +49,7 @@ namespace KampusStudio.Models.Services.Application
             foreach(DataRow comuneRow in dataTable.Rows)
             {
                 ComuneViewModel comune = ComuneViewModel.FromDataRow(comuneRow);
+                // Questo codice dovrebbe essere interamente sostituito con la funzione GetRegioneAsync -- INIZIO
                 FormattableString queryReg = $"SELECT * FROM regioni WHERE codiceRegione={comuneRow["regione"]}";
                 DataSet dataSetReg = await db.QueryAsync(queryReg);
                 var regioneTable = dataSetReg.Tables[0];
@@ -57,6 +58,7 @@ namespace KampusStudio.Models.Services.Application
                     throw new InvalidOperationException($"Mi aspettavo che venisse restituita solo una riga della tabella {comuneRow["regione"]}");
                 }
                 var regioneRow = regioneTable.Rows[0];
+                // Questo codice dovrebbe essere interamente sostituito con la funzione GetRegioneAsync -- FINE
                 var regioneViewModel = RegioneViewModel.FromDataRow(regioneRow);
                 comune.regione = (RegioneViewModel) regioneViewModel;
                 comuneList.Add(comune);

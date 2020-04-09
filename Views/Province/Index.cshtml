@@ -1,0 +1,25 @@
+@model List<ProvinciaViewModel>          // serve a rendere fortemente tipizzata la view
+<h1>Elenco province</h1>
+<div class="col-md-12"><h2>Qui devi inserire tutti i combo box per le varie ricerche contestuali</h2></div>
+<hr />
+@foreach (ProvinciaViewModel provincia in Model)
+{
+    <div class="row">
+        <div class="col-md-3">
+            <h2><a asp-action="Dettaglio" asp-route-id="@provincia.codiceProvincia">@provincia.nomeProvincia</a> (XX)</h2>
+        </div>
+        <div class="col-md-3">
+            Abitanti:<br />Abitanti
+        </div>
+        <div class="col-md-2">
+            Nr. comuni:<br />Numero
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-outline-primary" asp-action="Dettaglio" asp-route-id="@provincia.codiceProvincia">Vedi Provincia</a>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-outline-primary" href="#">Seleziona Comuni</a>
+        </div>
+    </div>
+    <hr />
+}
