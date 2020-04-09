@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-md-9">
         <h1>@(Model.nomeComune) (@Model.provincia)</h1>
-        <h2>Regione: <a asp-cpntroller="Comuni" asp-action="Index">@Model.regione</a></h2>
+        <h2>Regione: <a asp-cpntroller="Comuni" asp-action="Index">@Model.regione.nomeRegione</a></h2>
         <h2>Provincia: <a asp-cpntroller="Comuni" asp-action="Index">@Model.provincia</a></h2>
         <h2>Cap: <a asp-cpntroller="Comuni" asp-action="Index">@Model.cap</a></h2>
         <h2>Prefisso: <a asp-cpntroller="Comuni" asp-action="Index">@Model.prefisso</a></h2>

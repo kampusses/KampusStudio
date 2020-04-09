@@ -25,6 +25,18 @@ namespace KampusStudio.Models.Services.Application
             }
             var comuneRow = comuneTable.Rows[0];
             var comuneViewModel = ComuneViewModel.FromDataRow(comuneRow);
+
+            FormattableString queryReg = $"SELECT * FROM regioni WHERE codiceRegione={comuneRow["regione"]}";
+            DataSet dataSetReg = await db.QueryAsync(queryReg);
+            var regioneTable = dataSetReg.Tables[0];
+            if (regioneTable.Rows.Count != 1)
+            {
+                throw new InvalidOperationException($"Mi aspettavo che venisse restituita solo una riga della tabella {comuneRow["regione"]}");
+            }
+            var regioneRow = regioneTable.Rows[0];
+            var regioneViewModel = RegioneViewModel.FromDataRow(regioneRow);
+            comuneViewModel.regione = (RegioneViewModel) regioneViewModel;
+
             return comuneViewModel;
         }
 
@@ -37,6 +49,16 @@ namespace KampusStudio.Models.Services.Application
             foreach(DataRow comuneRow in dataTable.Rows)
             {
                 ComuneViewModel comune = ComuneViewModel.FromDataRow(comuneRow);
+                FormattableString queryReg = $"SELECT * FROM regioni WHERE codiceRegione={comuneRow["regione"]}";
+                DataSet dataSetReg = await db.QueryAsync(queryReg);
+                var regioneTable = dataSetReg.Tables[0];
+                if (regioneTable.Rows.Count != 1)
+                {
+                    throw new InvalidOperationException($"Mi aspettavo che venisse restituita solo una riga della tabella {comuneRow["regione"]}");
+                }
+                var regioneRow = regioneTable.Rows[0];
+                var regioneViewModel = RegioneViewModel.FromDataRow(regioneRow);
+                comune.regione = (RegioneViewModel) regioneViewModel;
                 comuneList.Add(comune);
             }
             return comuneList;
