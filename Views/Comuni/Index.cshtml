@@ -10,11 +10,11 @@
         </div>
         <div class="col-md-4">
             <a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.nomeComune</a> (<a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.codiceCatastale</a>)<br />
-            <abitanti>Abitanti: @comune.abitanti</abitanti>
+            <abitanti>Abitanti: @comune.abitanti.ToString("#,###,###")</abitanti>
         </div>
         <div class="col-md-3">
             <regione>Regione: <a asp-controller = "Regioni" asp-action="Dettaglio" asp-route-id="@comune.regione.codiceRegione">@comune.regione.nomeRegione</a></regione><br />
-            <provincia>Cod.Provincia @comune.provincia</provincia>
+            <provincia>Provincia: <a asp-controller = "Province" asp-action="Dettaglio" asp-route-id="@comune.provincia.codiceProvincia">@comune.provincia.nomeProvincia</a></provincia>
         </div>
         <div class="col-md-2">
             <cap>CAP: @comune.cap</cap><br />

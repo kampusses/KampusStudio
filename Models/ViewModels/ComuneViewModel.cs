@@ -8,7 +8,7 @@ namespace KampusStudio.Models.ViewModels
         public string codiceCatastale {get; set;}
         public string nomeComune {get; set;}
         public RegioneViewModel regione {get; set;}
-        public int provincia {get; set;}
+        public ProvinciaViewModel provincia {get; set;}
         public RipartizioneGeografica ripartizioneGeografica {get; set;}
         public int abitanti {get; set;}
         public string prefisso {get; set;}
@@ -21,7 +21,7 @@ namespace KampusStudio.Models.ViewModels
                 codiceCatastale = (string) comuneRow["codiceCatastale"],
                 nomeComune = (string) comuneRow["nomeComune"],
                 regione = new RegioneViewModel(),
-                provincia = (int) comuneRow["provincia"],
+                provincia = new ProvinciaViewModel(),
                 ripartizioneGeografica = (RipartizioneGeografica) comuneRow["ripartizioneGeografica"] - 1,
                 abitanti = (int) comuneRow["abitanti"],
                 prefisso = (string) comuneRow["prefisso"],

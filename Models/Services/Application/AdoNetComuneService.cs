@@ -37,6 +37,18 @@ namespace KampusStudio.Models.Services.Application
             var regioneViewModel = RegioneViewModel.FromDataRow(regioneRow);
             comuneViewModel.regione = (RegioneViewModel) regioneViewModel;
 
+
+            FormattableString queryPro = $"SELECT * FROM province WHERE codiceProvincia={comuneRow["provincia"]}";
+            DataSet dataSetPro = await db.QueryAsync(queryPro);
+            var provinciaTable = dataSetPro.Tables[0];
+            if (provinciaTable.Rows.Count != 1)
+            {
+                throw new InvalidOperationException($"Mi aspettavo che venisse restituita solo una riga della tabella {comuneRow["provincia"]}");
+            }
+            var provinciaRow = provinciaTable.Rows[0];
+            var provinciaViewModel = ProvinciaViewModel.FromDataRow(provinciaRow);
+            comuneViewModel.provincia = (ProvinciaViewModel) provinciaViewModel;
+
             return comuneViewModel;
         }
 
@@ -61,6 +73,20 @@ namespace KampusStudio.Models.Services.Application
                 // Questo codice dovrebbe essere interamente sostituito con la funzione GetRegioneAsync -- FINE
                 var regioneViewModel = RegioneViewModel.FromDataRow(regioneRow);
                 comune.regione = (RegioneViewModel) regioneViewModel;
+
+                // Questo codice dovrebbe essere interamente sostituito con la funzione GetProvinciaAsync -- INIZIO
+                FormattableString queryPro = $"SELECT * FROM province WHERE codiceProvincia={comuneRow["provincia"]}";
+                DataSet dataSetPro = await db.QueryAsync(queryPro);
+                var provinciaTable = dataSetPro.Tables[0];
+                if (provinciaTable.Rows.Count != 1)
+                {
+                    throw new InvalidOperationException($"Mi aspettavo che venisse restituita solo una riga della tabella {comuneRow["provincia"]}");
+                }
+                var provinciaRow = provinciaTable.Rows[0];
+                // Questo codice dovrebbe essere interamente sostituito con la funzione GetProvinciaAsync -- FINE
+                var provinciaViewModel = ProvinciaViewModel.FromDataRow(provinciaRow);
+                comune.provincia = (ProvinciaViewModel) provinciaViewModel;
+
                 comuneList.Add(comune);
             }
             return comuneList;

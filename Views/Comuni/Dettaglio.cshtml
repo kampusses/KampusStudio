@@ -1,13 +1,13 @@
 @model ComuneViewModel
 <div class="row">
     <div class="col-md-9">
-        <h1>@(Model.nomeComune) (@Model.provincia)</h1>
+        <h1>@(Model.nomeComune) (@Model.provincia.siglaProvincia)</h1>
         <h2>Regione: <a asp-controller = "Regioni" asp-action="Dettaglio" asp-route-id="@Model.regione.codiceRegione">@Model.regione.nomeRegione</a></h2>
-        <h2>Provincia: <a asp-cpntroller="Comuni" asp-action="Index">@Model.provincia</a></h2>
+        <h2>Provincia: <a asp-controller = "Province" asp-action="Dettaglio" asp-route-id="@Model.provincia.codiceProvincia">@Model.provincia.nomeProvincia</a></h2>
         <h2>Cap: <a asp-cpntroller="Comuni" asp-action="Index">@Model.cap</a></h2>
         <h2>Prefisso: <a asp-cpntroller="Comuni" asp-action="Index">@Model.prefisso</a></h2>
         <br />
-        <h2>Abitanti: @Model.abitanti</h2>
+        <h2>Abitanti: @Model.abitanti.ToString("#,###,###")</h2>
         <h2>Codice catastale: @Model.codiceCatastale</h2>
         <br />
         <a class="btn btn-outline-primary" asp-cpntroller="Comuni" asp-action="Index">Vai all'elenco dei comuni</a>
