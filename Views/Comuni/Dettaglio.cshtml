@@ -1,7 +1,11 @@
 @model ComuneViewModel
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
         <h1>@(Model.nomeComune) (@Model.provincia.siglaProvincia)</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-9">
         <h2>Regione: <a asp-controller = "Regioni" asp-action="Dettaglio" asp-route-id="@Model.regione.codiceRegione">@Model.regione.nomeRegione</a></h2>
         <h2>Provincia: <a asp-controller = "Province" asp-action="Dettaglio" asp-route-id="@Model.provincia.codiceProvincia">@Model.provincia.nomeProvincia</a></h2>
         <h2>Cap: <a asp-cpntroller="Comuni" asp-action="Index">@Model.cap</a></h2>
@@ -13,8 +17,7 @@
         <a class="btn btn-outline-primary" asp-cpntroller="Comuni" asp-action="Index">Vai all'elenco dei comuni</a>
     </div>
     <div class="col-md-3">
-        <br />
-        <h2>Ripartizione geografica<br />@(Model.ripartizioneGeografica)</h2>
-        <img src="~/Italia/@(@Model.ripartizioneGeografica).jpg" width="200">
+        <img src="~/Italia/@(@Model.regione.ripartizioneGeografica).jpg" width="200">
+        <h2>Ripartizione geografica<br />@(Model.regione.ripartizioneGeografica)</h2>
     </div>
 </div>

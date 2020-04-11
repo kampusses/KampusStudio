@@ -6,15 +6,15 @@
 {
     <div class="row">
         <div class="col-md-1">
-            <a href="#"><img src="~/Italia/@(comune.ripartizioneGeografica).jpg" width="50" title="@comune.ripartizioneGeografica"></a>
+            <a href="#"><img src="~/Italia/@(comune.regione.ripartizioneGeografica).jpg" width="50" title="@comune.regione.ripartizioneGeografica"></a>
         </div>
         <div class="col-md-4">
-            <a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.nomeComune</a> (<a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.codiceCatastale</a>)<br />
+            <h2><a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.nomeComune</a></h2>
             <abitanti>Abitanti: @comune.abitanti.ToString("#,###,###")</abitanti>
         </div>
         <div class="col-md-3">
             <regione>Regione: <a asp-controller = "Regioni" asp-action="Dettaglio" asp-route-id="@comune.regione.codiceRegione">@comune.regione.nomeRegione</a></regione><br />
-            <provincia>Provincia: <a asp-controller = "Province" asp-action="Dettaglio" asp-route-id="@comune.provincia.codiceProvincia">@comune.provincia.nomeProvincia</a></provincia>
+            <provincia>Provincia: <a asp-controller = "Province" asp-action="Dettaglio" asp-route-id="@comune.provincia.codiceProvincia">@comune.provincia.nomeProvincia (@comune.provincia.siglaProvincia)</a></provincia>
         </div>
         <div class="col-md-2">
             <cap>CAP: @comune.cap</cap><br />
