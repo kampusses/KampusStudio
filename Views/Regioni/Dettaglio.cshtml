@@ -1,8 +1,8 @@
 @model RegioneViewModel
 <div class="row">
     <div class="col-md-12">
-        <h1>@(Model.nomeRegione)</h1>
-        <h2>Capoluogo di Regione: <a href="#">Mome del capoluogo</a></h2>
+        <h1>@Model.nomeRegione</h1>
+        <h2>Capoluogo di Regione: <a asp-controller="Comuni" asp-action="Dettaglio" asp-route-id="@Model.codiceCapoluogo.codiceCatastale">@Model.codiceCapoluogo.nomeComune</a></h2>
         <h2>Totale abitanti: xxxxx</h2>
         <br />
         <h3>Elenco Province:</h3>

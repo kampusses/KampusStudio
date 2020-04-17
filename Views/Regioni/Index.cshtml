@@ -9,7 +9,7 @@
             <h2><a asp-action="Dettaglio" asp-route-id="@regione.codiceRegione">@regione.nomeRegione</a></h2>
         </div>
         <div class="col-md-3">
-            Capoluogo di regione:<br /><a href="#">@regione.codiceRegione</a>
+            Capoluogo di regione:<br /><a asp-controller="Comuni" asp-action="Dettaglio" asp-route-id="@regione.codiceCapoluogo.codiceCatastale">@regione.codiceCapoluogo.nomeComune</a>
         </div>
         <div class="col-md-2">
             Abitanti:<br />Abitanti

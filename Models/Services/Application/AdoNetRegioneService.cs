@@ -25,6 +25,20 @@ namespace KampusStudio.Models.Services.Application
             }
             var regioneRow = regioneTable.Rows[0];
             var regioneViewModel = RegioneViewModel.FromDataRow(regioneRow);
+
+            // Questo codice dovrebbe essere interamente sostituito con la funzione GetRegioneAsync -- INIZIO
+            FormattableString queryCom = $"SELECT * FROM comuni WHERE codiceCatastale={regioneRow["codiceCapoluogo"]}";
+            DataSet dataSetCom = await db.QueryAsync(queryCom);
+            var comuneTable = dataSetCom.Tables[0];
+            if (comuneTable.Rows.Count != 1)
+            {
+                throw new InvalidOperationException($"Mi aspettavo che venisse restituita solo una riga della tabella {regioneRow["codiceCapoluogo"]}");
+            }
+            var comuneRow = comuneTable.Rows[0];
+            // Questo codice dovrebbe essere interamente sostituito con la funzione GetRegioneAsync -- FINE
+            var comuneViewModel = ComuneViewModel.FromDataRow(comuneRow);
+            regioneViewModel.codiceCapoluogo = (ComuneViewModel) comuneViewModel;
+
             return regioneViewModel;
         }
 
@@ -37,6 +51,18 @@ namespace KampusStudio.Models.Services.Application
             foreach(DataRow regioneRow in dataTable.Rows)
             {
                 RegioneViewModel regione = RegioneViewModel.FromDataRow(regioneRow);
+                // Questo codice dovrebbe essere interamente sostituito con la funzione GetRegioneAsync -- INIZIO
+                FormattableString queryCom = $"SELECT * FROM comuni WHERE codiceCatastale={regioneRow["codiceCapoluogo"]}";
+                DataSet dataSetCom = await db.QueryAsync(queryCom);
+                var comuneTable = dataSetCom.Tables[0];
+                if (comuneTable.Rows.Count != 1)
+                {
+                    throw new InvalidOperationException($"Mi aspettavo che venisse restituita solo una riga della tabella {regioneRow["codiceCapoluogo"]}");
+                }
+                var comuneRow = comuneTable.Rows[0];
+                // Questo codice dovrebbe essere interamente sostituito con la funzione GetRegioneAsync -- FINE
+                var comuneViewModel = ComuneViewModel.FromDataRow(comuneRow);
+                regione.codiceCapoluogo = (ComuneViewModel) comuneViewModel;
                 regioneList.Add(regione);
             }
             return regioneList;

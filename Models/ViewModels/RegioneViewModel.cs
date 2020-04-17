@@ -8,6 +8,7 @@ namespace KampusStudio.Models.ViewModels
         public int codiceRegione {get; set;}
         public string nomeRegione {get; set;}
         public RipartizioneGeografica ripartizioneGeografica {get; set;}
+        public ComuneViewModel codiceCapoluogo {get; set;}
     
         public static RegioneViewModel FromDataRow(DataRow regioneRow)
         {
@@ -15,7 +16,8 @@ namespace KampusStudio.Models.ViewModels
             {
                 codiceRegione = (int) regioneRow["codiceRegione"],
                 nomeRegione = (string) regioneRow["nomeRegione"],
-                ripartizioneGeografica = (RipartizioneGeografica) regioneRow["ripartizioneGeografica"] -1
+                ripartizioneGeografica = (RipartizioneGeografica) regioneRow["ripartizioneGeografica"] -1,
+                codiceCapoluogo = new ComuneViewModel()
             };
             return regioneViewModel;
         }
