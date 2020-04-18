@@ -1,6 +1,14 @@
 @model List<ComuneViewModel>          // serve a rendere fortemente tipizzata la view
 <h1>Elenco comuni</h1>
-<div class="col-md-12"><h2>Qui devi inserire tutti i combo box per le varie ricerche contestuali</h2></div>
+<div class="row">
+    <div class="col-md-5">
+        <input type="text" name="search" placeholder="Cerca comune">
+        <button><i class="fas fa-search"></i></button>
+    </div>
+    <div class="col-md-3">Campo1</div>
+    <div class="col-md-2">Campo1</div>
+    <div class="col-md-2"></div>
+</div>
 <hr />
 @foreach (ComuneViewModel comune in Model)
 {
