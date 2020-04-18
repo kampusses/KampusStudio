@@ -1,13 +1,22 @@
 @model List<ComuneViewModel>          // serve a rendere fortemente tipizzata la view
-<h1>Elenco comuni</h1>
 <div class="row">
-    <div class="col-md-5">
-        <input type="text" name="search" placeholder="Cerca comune">
-        <button><i class="fas fa-search"></i></button>
+    <div class="col-md-8">
+        <h1>Elenco comuni</h1>
     </div>
-    <div class="col-md-3">Campo1</div>
-    <div class="col-md-2">Campo1</div>
-    <div class="col-md-2"></div>
+    <div class="col-md-4 d-flex align-items-center">
+        <form asp-controller="Comuni" asp-action="Index" method="get">
+            <div class="input-group">
+                <input type="text" name="search" placeholder="Cerca comune">
+                <div class="input-group-append"><button class="input-group-text" id="search-button"><i class="fas fa-search"></i></button></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2">Comune</div>
+    <div class="col-md-5">Abitanti</div>
+    <div class="col-md-4"></div>
 </div>
 <hr />
 @foreach (ComuneViewModel comune in Model)

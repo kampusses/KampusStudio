@@ -52,9 +52,9 @@ namespace KampusStudio.Models.Services.Application
             return comuneViewModel;
         }
 
-        public async Task<List<ComuneViewModel>> GetComuniAsync()
+        public async Task<List<ComuneViewModel>> GetComuniAsync(string search)
         {
-            FormattableString query = $"SELECT * FROM comuni ORDER BY nomeComune LIMIT 20;";
+            FormattableString query = $"SELECT * FROM comuni WHERE nomeComune LIKE {"%" + search + "%"} ORDER BY nomeComune LIMIT 20;";
             DataSet dataSet = await db.QueryAsync(query);
             var dataTable = dataSet.Tables[0];
             var comuneList = new List<ComuneViewModel>();
