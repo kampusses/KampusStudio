@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
+using kampus.Models.ValueTypes;
 using KampusStudio.Models.Services.Infrastructure;
 using KampusStudio.Models.ViewModels;
 
@@ -52,9 +53,17 @@ namespace KampusStudio.Models.Services.Application
             return comuneViewModel;
         }
 
-        public async Task<List<ComuneViewModel>> GetComuniAsync(string search)
+        public async Task<List<ComuneViewModel>> GetComuniAsync(string search, int page, string orderby, bool ascending)
         {
-            FormattableString query = $"SELECT * FROM comuni WHERE nomeComune LIKE {"%" + search + "%"} ORDER BY nomeComune LIMIT 20;";
+            // SANITIZZAZIOINE
+            // QUESTE OPERAZIONI ANDREBBERO MESSE IN UNA CLASSE A PARTE IN QUANTO HANNO RESPONSABILITA' DIVERSE RISPETTO AL RESTO DEL CODICE
+            page = Math.Max(1, page);
+            int limit = 20;
+            int offset = (page - 1) * limit;
+            if (orderby != "nomeComune" && orderby != "abitanti") orderby = "nomeComune";
+            
+            string direction = ascending ? "ASC" : "DESC";
+            FormattableString query = $"SELECT * FROM comuni WHERE nomeComune LIKE {"%" + search + "%"} ORDER BY {(Sql) orderby} {(Sql) direction} LIMIT {limit} OFFSET {offset};";
             DataSet dataSet = await db.QueryAsync(query);
             var dataTable = dataSet.Tables[0];
             var comuneList = new List<ComuneViewModel>();

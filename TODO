@@ -4,6 +4,7 @@ Nella view che elenca le regioni, inserire in cima alla pagina tutti gli element
 Nella pagina 'Elenco Regioni' 'Dettaglio regioni' inserire il nome del capoluogo e il numero degli abitanti, ecc. anziché i rispettivi segnaposto
 In AdoNetComuneService.cs sostituire il codice dove seleziona la regione al posto della funzione GetRegioneAsync
 In AdoNetComuneService.cs sostituire il codice dove seleziona la provincia al posto della funzione GetProvinciaAsync
+Nella classe AdoNetComuneService, spostare in una classe apposita tutte le operazioni di sanitizzazione
 
 FATTO
 Nel controller ComuniController.cs inserire il codice per visualizzare il nome del comune nel TITLE della view
