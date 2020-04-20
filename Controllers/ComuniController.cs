@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using KampusStudio.Models.InputModels;
 using KampusStudio.Models.Services.Application;
 using KampusStudio.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +14,10 @@ namespace kampus.Controllers
         {
             this.comuneService = comuneService;
         }
-        public async Task<IActionResult> Index(string search = null, int page = 1, string orderby = "nomeComune", bool ascending = true)
+        public async Task<IActionResult> Index(ComuneElencoInputModel input)
         {
             ViewBag.Titolo = "Kampus Studio - Elenco comuni";
-            List<ComuneViewModel> comuni = await comuneService.GetComuniAsync(search, page, orderby, ascending);
+            List<ComuneViewModel> comuni = await comuneService.GetComuniAsync(input);
             return View(comuni);
         }
 
