@@ -57,8 +57,8 @@ namespace KampusStudio.Models.Services.Application
         public async Task<ListViewModel<ComuneViewModel>> GetComuniAsync(ComuneElencoInputModel model)
         {
             string direction = model.Ascending ? "ASC" : "DESC";
-            FormattableString query = $@"SELECT * FROM comuni WHERE nomeComune LIKE {"%" + model.Search + "%"} ORDER BY {(Sql) model.OrderBy} {(Sql) direction} LIMIT {model.Limit} OFFSET {model.Offset}; 
-            SELECT COUNT(*) FROM comuni WHERE nomeComune LIKE {"%" + model.Search + "%"}";
+            FormattableString query = $@"SELECT * FROM comuni WHERE nomeComune LIKE {"%" + model.Search + "%"} AND cap LIKE {"%" + model.Cap + "%"} ORDER BY {(Sql) model.OrderBy} {(Sql) direction} LIMIT {model.Limit} OFFSET {model.Offset}; 
+            SELECT COUNT(*) FROM comuni WHERE nomeComune LIKE {"%" + model.Search + "%"} AND cap LIKE {"%" + model.Cap + "%"}";
             DataSet dataSet = await db.QueryAsync(query);
             var dataTable = dataSet.Tables[0];
             var comuneList = new List<ComuneViewModel>();

@@ -13,9 +13,10 @@ namespace KampusStudio.Customizations.ModelBinders
             string orderBy = bindingContext.ValueProvider.GetValue("OrderBy").FirstValue;
             int.TryParse(bindingContext.ValueProvider.GetValue("Page").FirstValue, out int page);
             bool.TryParse(bindingContext.ValueProvider.GetValue("Ascending").FirstValue, out bool ascending);
+            string cap = bindingContext.ValueProvider.GetValue("Cap").FirstValue;
 
             //Creiamo l'istanza del ComuneElencoInputModel
-            var inputModel = new ComuneElencoInputModel(search, page, orderBy, ascending);
+            var inputModel = new ComuneElencoInputModel(search, page, orderBy, ascending, cap);
 
             //Impostiamo il risultato per notificare che la creazione è avvenuta con successo
             bindingContext.Result = ModelBindingResult.Success(inputModel);
