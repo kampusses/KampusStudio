@@ -5,7 +5,7 @@ namespace KampusStudio.Models.ViewModels
 {
     public class ComuneListViewModel
     {
-        public List<ComuneViewModel> Comuni { get; set; }
+        public ListViewModel<ComuneViewModel> Comuni { get; set; }
         public ComuneElencoInputModel Input { get; set; }
     }
 }

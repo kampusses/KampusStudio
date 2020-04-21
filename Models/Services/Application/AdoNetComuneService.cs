@@ -54,10 +54,11 @@ namespace KampusStudio.Models.Services.Application
             return comuneViewModel;
         }
 
-        public async Task<List<ComuneViewModel>> GetComuniAsync(ComuneElencoInputModel model)
+        public async Task<ListViewModel<ComuneViewModel>> GetComuniAsync(ComuneElencoInputModel model)
         {
             string direction = model.Ascending ? "ASC" : "DESC";
-            FormattableString query = $"SELECT * FROM comuni WHERE nomeComune LIKE {"%" + model.Search + "%"} ORDER BY {(Sql) model.OrderBy} {(Sql) direction} LIMIT {model.Limit} OFFSET {model.Offset};";
+            FormattableString query = $@"SELECT * FROM comuni WHERE nomeComune LIKE {"%" + model.Search + "%"} ORDER BY {(Sql) model.OrderBy} {(Sql) direction} LIMIT {model.Limit} OFFSET {model.Offset}; 
+            SELECT COUNT(*) FROM comuni WHERE nomeComune LIKE {"%" + model.Search + "%"}";
             DataSet dataSet = await db.QueryAsync(query);
             var dataTable = dataSet.Tables[0];
             var comuneList = new List<ComuneViewModel>();
@@ -92,7 +93,12 @@ namespace KampusStudio.Models.Services.Application
 
                 comuneList.Add(comune);
             }
-            return comuneList;
+            ListViewModel<ComuneViewModel> result = new ListViewModel<ComuneViewModel>
+            {
+                Results = comuneList,
+                TotalCount = Convert.ToInt32(dataSet.Tables[1].Rows[0][0])
+            };
+            return result;
         } 
     }
 }

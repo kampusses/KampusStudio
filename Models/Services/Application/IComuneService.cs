@@ -7,7 +7,7 @@ namespace KampusStudio.Models.Services.Application
 {
     public interface IComuneService
     {
-         Task<List<ComuneViewModel>> GetComuniAsync(ComuneElencoInputModel model);
+         Task<ListViewModel<ComuneViewModel>> GetComuniAsync(ComuneElencoInputModel model);
          Task<ComuneViewModel> GetComuneAsync(string id);
     }
 }
