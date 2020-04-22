@@ -7,7 +7,7 @@ namespace KampusStudio.Models.InputModels
     [ModelBinder(BinderType = typeof(ComuneElencoInputModelBinder))]
     public class ComuneElencoInputModel
     {
-        public ComuneElencoInputModel(string search, int page, string orderby, bool ascending, string cap)
+        public ComuneElencoInputModel(string search, int page, string orderby, bool ascending, string cap, string prefisso)
         {
             if (orderby != "nomeComune" && orderby != "abitanti")
             {
@@ -21,6 +21,7 @@ namespace KampusStudio.Models.InputModels
             OrderBy = orderby;
             Ascending = ascending;
             Cap = cap;
+            Prefisso = prefisso;
 
             // IMPOSTAZIONI DI PAGINA
             Limit = 10;
@@ -31,6 +32,7 @@ namespace KampusStudio.Models.InputModels
         public string OrderBy { get; }
         public bool Ascending { get; }
         public string Cap { get; }
+        public string Prefisso { get; }
         public int Limit { get; }
         public int Offset { get; }
     }
