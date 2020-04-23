@@ -1,13 +1,26 @@
 @model ComuneListViewModel          // serve a rendere fortemente tipizzata la view
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-7">
         <h1>Elenco comuni</h1>
     </div>
-    <div class="col-md-4 d-flex align-items-center">
+    <div class="col-md-5 d-flex align-items-center">
         <form asp-controller="Comuni" asp-action="Index" method="get">
             <div class="input-group">
-                <input type="text" name="search" placeholder="Cerca comune" value="@Model.Input.Search">
-                <div class="input-group-append"><button class="input-group-text" id="search-button"><i class="fas fa-search"></i></button></div>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle piatto-dx" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Cerca per ...
+                    </button>
+                    
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button" onclick="var a1 = document.getElementById('ricerca'); a1.placeholder = 'Nome Comune'">Nome comune</button>
+                        <button class="dropdown-item" type="button" onclick="var a1 = document.getElementById('ricerca'); a1.placeholder = 'CAP'">CAP</button>
+                        <button class="dropdown-item" type="button" onclick="var a1 = document.getElementById('ricerca'); a1.placeholder = 'Prefisso'">Prefisso</button>
+                    </div>
+                </div>
+
+                <input type="text" name="search" placeholder="Nome Comune" id="ricerca" value="@Model.Input.Search">
+                <div class="input-group-append"><button class="input-group-text" id="search-button" onclick="alert(ordinamento)"><i class="fas fa-search"></i></button></div>
             </div>
         </form>
     </div>

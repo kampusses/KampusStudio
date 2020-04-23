@@ -83,3 +83,7 @@ h2 {
     font-weight: 600;
     text-decoration: none;
 }
+.dropdown .piatto-dx{
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
