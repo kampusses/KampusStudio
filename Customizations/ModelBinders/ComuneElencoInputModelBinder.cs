@@ -10,6 +10,7 @@ namespace KampusStudio.Customizations.ModelBinders
         {
             //Recuperiamo i valori grazie ai value provider
             string search = bindingContext.ValueProvider.GetValue("Search").FirstValue;
+            string searchType = bindingContext.ValueProvider.GetValue("SearchType").FirstValue;
             string orderBy = bindingContext.ValueProvider.GetValue("OrderBy").FirstValue;
             int.TryParse(bindingContext.ValueProvider.GetValue("Page").FirstValue, out int page);
             bool.TryParse(bindingContext.ValueProvider.GetValue("Ascending").FirstValue, out bool ascending);
@@ -17,7 +18,7 @@ namespace KampusStudio.Customizations.ModelBinders
             string prefisso = bindingContext.ValueProvider.GetValue("Prefisso").FirstValue;
 
             //Creiamo l'istanza del ComuneElencoInputModel
-            var inputModel = new ComuneElencoInputModel(search, page, orderBy, ascending, cap, prefisso);
+            var inputModel = new ComuneElencoInputModel(search, searchType, page, orderBy, ascending, cap, prefisso);
 
             //Impostiamo il risultato per notificare che la creazione è avvenuta con successo
             bindingContext.Result = ModelBindingResult.Success(inputModel);

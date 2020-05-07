@@ -7,7 +7,7 @@ namespace KampusStudio.Models.InputModels
     [ModelBinder(BinderType = typeof(ComuneElencoInputModelBinder))]
     public class ComuneElencoInputModel
     {
-        public ComuneElencoInputModel(string search, int page, string orderby, bool ascending, string cap, string prefisso)
+        public ComuneElencoInputModel(string search, string searchtype, int page, string orderby, bool ascending, string cap, string prefisso)
         {
             if (orderby != "nomeComune" && orderby != "abitanti")
             {
@@ -17,6 +17,8 @@ namespace KampusStudio.Models.InputModels
 
             //SANITIZZAZIONE
             Search = search ?? "";
+            if (searchtype == null || (searchtype != "Nome comune" && searchtype != "CAP" && searchtype != "Prefisso")) SearchType = "Nome comune";
+            else SearchType = searchtype;
             Page = Math.Max(1, page);
             OrderBy = orderby;
             Ascending = ascending;
@@ -28,6 +30,7 @@ namespace KampusStudio.Models.InputModels
             Offset = (Page - 1) * Limit;
         }
         public string Search { get; }
+        public string SearchType { get; }
         public int Page { get; }
         public string OrderBy { get; }
         public bool Ascending { get; }

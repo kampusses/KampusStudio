@@ -86,4 +86,5 @@ h2 {
 .dropdown .piatto-dx{
     border-top-right-radius: 0%;
     border-bottom-right-radius: 0%;
+    width: 150px;
 }
