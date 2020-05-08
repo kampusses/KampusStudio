@@ -12,7 +12,8 @@
             Capoluogo di regione:<br /><a asp-controller="Comuni" asp-action="Dettaglio" asp-route-id="@regione.codiceCapoluogo.codiceCatastale">@regione.codiceCapoluogo.nomeComune</a>
         </div>
         <div class="col-md-2">
-            Abitanti:<br />Abitanti
+            Abitanti: @regione.abitanti.ToString("#,###,###")<br />
+            Numero comuni: @regione.numComuni
         </div>
         <div class="col-md-2">
             <a class="btn btn-outline-primary" asp-action="Dettaglio" asp-route-id="@regione.codiceRegione">Visualizza Regione</a>
