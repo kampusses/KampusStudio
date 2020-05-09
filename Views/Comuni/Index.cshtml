@@ -52,7 +52,7 @@
             <a href="#"><img src="~/Italia/@(comune.regione.ripartizioneGeografica).jpg" width="50" title="@comune.regione.ripartizioneGeografica"></a>
         </div>
         <div class="col-md-4">
-            <h2><a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.nomeComune</a></h2>
+            <h2><a asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">@comune.nomeComune</a> <a href="#">@if(comune.flagProvincia==1) {<i title="Provincia" class="fab fa-product-hunt"></i>}</a> <a href="#">@if (comune.flagRegione==1){<i title="Capoluogo di regione" class="fas fa-registered"></i>}</a></h2>
             <abitanti>Abitanti: @comune.abitanti.ToString("#,###,###")</abitanti>
         </div>
         <div class="col-md-3">
