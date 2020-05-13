@@ -12,7 +12,7 @@
                         <span id="searchType">@Model.Input.SearchType</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <button class="dropdown-item" type="button" onclick="var c1 = document.getElementById('searchTypeValue'); c1.value = 'Nome Comune'; var b1 = document.getElementById('searchType'); b1.innerHTML = 'Nome Comune';">Nome comune</button>
+                        <button class="dropdown-item" type="button" onclick="var c1 = document.getElementById('searchTypeValue'); c1.value = 'Nome Comune'; var b1 = document.getElementById('searchType'); b1.innerHTML = 'Nome Comune';">Nome Comune</button>
                         <button class="dropdown-item" type="button" onclick="var c1 = document.getElementById('searchTypeValue'); c1.value = 'CAP'; var b1 = document.getElementById('searchType'); b1.innerHTML = 'CAP';">CAP</button>
                         <button class="dropdown-item" type="button" onclick="var c1 = document.getElementById('searchTypeValue'); c1.value = 'Prefisso'; var b1 = document.getElementById('searchType'); b1.innerHTML = 'Prefisso';">Prefisso</button>
                         <input id="searchTypeValue" type="hidden" name="searchtype" value="@Model.Input.SearchType"></input>
@@ -32,7 +32,7 @@
     <div class="col-md-7">
     </div>
     <div style="height: 30px;" class="col-md-5 d-flex align-items-start">
-        @if(@Model.Input.Search!="")
+        @if(@Model.Input.Search!="" || @Model.Input.Cap!=null || @Model.Input.Prefisso!=null)
         {
             <a asp-controller="Comuni" asp-action="Index"><i class="far fa-times-circle"></i> azzera ricerca</a>
         }
@@ -60,8 +60,8 @@
             <provincia>Provincia: <a asp-controller = "Province" asp-action="Dettaglio" asp-route-id="@comune.provincia.codiceProvincia">@comune.provincia.nomeProvincia (@comune.provincia.siglaProvincia)</a></provincia>
         </div>
         <div class="col-md-2">
-            <cap>CAP: <a asp-controller="Comuni" asp-action="Index" asp-route-cap="@comune.cap">@comune.cap</a></cap><br />
-            <prefisso>Prefisso: <a asp-controller="Comuni" asp-action="Index" asp-route-prefisso="@comune.prefisso">@comune.prefisso</a></prefisso>
+            <cap>CAP: <a asp-controller="Comuni" asp-action="Index" asp-route-searchType="CAP" asp-route-search="@comune.cap">@comune.cap</a></cap><br />
+            <prefisso>Prefisso: <a asp-controller="Comuni" asp-action="Index" asp-route-searchType="Prefisso" asp-route-search="@comune.prefisso">@comune.prefisso</a></prefisso>
         </div>
         <div class="col-md-2">
             <a class="btn btn-outline-primary" asp-action="Dettaglio" asp-route-id="@comune.codiceCatastale">Visualizza</a>
