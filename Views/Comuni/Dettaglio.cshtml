@@ -8,8 +8,8 @@
     <div class="col-md-9">
         <h2>Regione: <a asp-controller = "Regioni" asp-action="Dettaglio" asp-route-id="@Model.regione.codiceRegione">@Model.regione.nomeRegione</a></h2>
         <h2>Provincia: <a asp-controller = "Province" asp-action="Dettaglio" asp-route-id="@Model.provincia.codiceProvincia">@Model.provincia.nomeProvincia (@Model.provincia.siglaProvincia)</a></h2>
-        <h2>Cap: <a asp-cpntroller="Comuni" asp-action="Index" asp-route-cap="@Model.cap">@Model.cap</a></h2>
-        <h2>Prefisso: <a asp-cpntroller="Comuni" asp-action="Index" asp-route-prefisso="@Model.prefisso">@Model.prefisso</a></h2>
+        <h2>Cap: <a asp-cpntroller="Comuni" asp-action="Index" asp-route-searchType="CAP" asp-route-search="@Model.cap">@Model.cap</a></h2>
+        <h2>Prefisso: <a asp-cpntroller="Comuni" asp-action="Index" asp-route-searchType="Prefisso" asp-route-search="@Model.prefisso">@Model.prefisso</a></h2>
         <br />
         <h2>Abitanti: @Model.abitanti.ToString("#,###,###")</h2>
         <h2>Codice catastale: @Model.codiceCatastale</h2>
