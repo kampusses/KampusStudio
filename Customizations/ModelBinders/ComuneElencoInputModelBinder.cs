@@ -16,9 +16,10 @@ namespace KampusStudio.Customizations.ModelBinders
             bool.TryParse(bindingContext.ValueProvider.GetValue("Ascending").FirstValue, out bool ascending);
             string cap = bindingContext.ValueProvider.GetValue("Cap").FirstValue;
             string prefisso = bindingContext.ValueProvider.GetValue("Prefisso").FirstValue;
+            string belfiore = bindingContext.ValueProvider.GetValue("Belfiore").FirstValue;
 
             //Creiamo l'istanza del ComuneElencoInputModel
-            var inputModel = new ComuneElencoInputModel(search, searchType, page, orderBy, ascending, cap, prefisso);
+            var inputModel = new ComuneElencoInputModel(search, searchType, page, orderBy, ascending, cap, prefisso, belfiore);
 
             //Impostiamo il risultato per notificare che la creazione è avvenuta con successo
             bindingContext.Result = ModelBindingResult.Success(inputModel);
