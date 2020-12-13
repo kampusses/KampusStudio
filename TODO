@@ -4,6 +4,7 @@ Nella pagina 'Elenco Regioni' 'Dettaglio regioni' inserire il nome del capoluogo
 In AdoNetComuneService.cs sostituire il codice dove seleziona la regione al posto della funzione GetRegioneAsync
 In AdoNetComuneService.cs sostituire il codice dove seleziona la provincia al posto della funzione GetProvinciaAsync
 Nella classe ComuneElencoInputModel rendere parametrici i valori di Limit ed Offset facendoli scegliere all'utente dalla schermata
+Nel file MyDbContext.cs eliminare la string connection
 
 FATTO
 Nel controller ComuniController.cs inserire il codice per visualizzare il nome del comune nel TITLE della view
