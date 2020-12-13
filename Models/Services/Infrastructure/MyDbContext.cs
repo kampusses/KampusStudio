@@ -18,9 +18,9 @@ namespace kampus.Models.Services.Infrastructure
         {
         }
 
-        public virtual DbSet<Comuni> Comunis { get; set; }
-        public virtual DbSet<Province> Provinces { get; set; }
-        public virtual DbSet<Regioni> Regionis { get; set; }
+        public virtual DbSet<Comune> Comuni { get; set; }
+        public virtual DbSet<Provincia> Province { get; set; }
+        public virtual DbSet<Regione> Regioni { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,7 +33,7 @@ namespace kampus.Models.Services.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Comuni>(entity =>
+            modelBuilder.Entity<Comune>(entity =>
             {
                 entity.HasKey(e => e.CodiceCatastale)
                     .HasName("PRIMARY");
@@ -106,7 +106,7 @@ namespace kampus.Models.Services.Infrastructure
                     .HasComment("Regione");
             });
 
-            modelBuilder.Entity<Province>(entity =>
+            modelBuilder.Entity<Provincia>(entity =>
             {
                 entity.HasKey(e => e.CodiceProvincia)
                     .HasName("PRIMARY");
@@ -137,7 +137,7 @@ namespace kampus.Models.Services.Infrastructure
                     .HasCollation("latin1_swedish_ci");
             });
 
-            modelBuilder.Entity<Regioni>(entity =>
+            modelBuilder.Entity<Regione>(entity =>
             {
                 entity.HasKey(e => e.CodiceRegione)
                     .HasName("PRIMARY");

@@ -5,17 +5,17 @@ using System.Collections.Generic;
 
 namespace kampus.Models.Entities
 {
-    public partial class Comuni
+    public partial class Comune
     {
-        public string CodiceCatastale { get; set; }
-        public string NomeComune { get; set; }
-        public int Regione { get; set; }
-        public int Provincia { get; set; }
-        public int FlagRegione { get; set; }
-        public int FlagProvincia { get; set; }
-        public int Abitanti { get; set; }
-        public string Prefisso { get; set; }
-        public string Cap { get; set; }
-        public string CodiceIstat { get; set; }
+        public string CodiceCatastale { get; private set; }
+        public string NomeComune { get; private set; }
+        public int Regione { get; private set; }
+        public int Provincia { get; private set; }
+        public int FlagRegione { get; private set; }
+        public int FlagProvincia { get; private set; }
+        public int Abitanti { get; private set; }
+        public string Prefisso { get; private set; }
+        public string Cap { get; private set; }
+        public string CodiceIstat { get; private set; }
     }
 }
