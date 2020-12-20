@@ -70,7 +70,7 @@ namespace KampusStudio.Models.Services.Application
 
                 // Per ogni regione conta il numero dei suoi comuni
                 // Questo codice dovrebbe essere interamente sostituito con la funzione GetRegioneAsync -- INIZIO
-                FormattableString queryCom2 = $"SELECT COUNT(*) FROM comuni WHERE regione={regioneRow["codiceRegione"]}";
+                FormattableString queryCom2 = $"SELECT COUNT(*) FROM comuni WHERE codiceRegione={regioneRow["codiceRegione"]}";
                 DataSet dataSetCom2 = await db.QueryAsync(queryCom2);
                 var comuneTable2 = dataSetCom2.Tables[0];
                 if (comuneTable2.Rows.Count != 1)
@@ -85,7 +85,7 @@ namespace KampusStudio.Models.Services.Application
 
                 // Per ogni regione conta il numero dei suoi abitanti totali
                 // Questo codice dovrebbe essere interamente sostituito con la funzione GetRegioneAsync -- INIZIO
-                FormattableString queryCom3 = $"SELECT SUM(abitanti) FROM comuni WHERE regione={regioneRow["codiceRegione"]}";
+                FormattableString queryCom3 = $"SELECT SUM(abitanti) FROM comuni WHERE codiceRegione={regioneRow["codiceRegione"]}";
                 DataSet dataSetCom3 = await db.QueryAsync(queryCom3);
                 var comuneTable3 = dataSetCom3.Tables[0];
                 if (comuneTable3.Rows.Count != 1)

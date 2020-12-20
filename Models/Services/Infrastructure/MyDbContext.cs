@@ -95,12 +95,12 @@ namespace kampus.Models.Services.Infrastructure
                     .HasCharSet("latin1")
                     .HasCollation("latin1_swedish_ci");
 
-                entity.Property(e => e.Provincia)
+                entity.Property(e => e.CodiceProvincia)
                     .HasColumnType("int(11)")
                     .HasColumnName("provincia")
                     .HasComment("Provincia");
 
-                entity.Property(e => e.Regione)
+                entity.Property(e => e.CodiceRegione)
                     .HasColumnType("int(11)")
                     .HasColumnName("regione")
                     .HasComment("Regione");

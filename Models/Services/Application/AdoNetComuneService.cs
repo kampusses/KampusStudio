@@ -28,7 +28,7 @@ namespace KampusStudio.Models.Services.Application
             var comuneRow = comuneTable.Rows[0];
             var comuneViewModel = ComuneViewModel.FromDataRow(comuneRow);
 
-            FormattableString queryReg = $"SELECT * FROM regioni WHERE codiceRegione={comuneRow["regione"]}";
+            FormattableString queryReg = $"SELECT * FROM regioni WHERE codiceRegione={comuneRow["codiceRegione"]}";
             DataSet dataSetReg = await db.QueryAsync(queryReg);
             var regioneTable = dataSetReg.Tables[0];
             if (regioneTable.Rows.Count != 1)
@@ -40,7 +40,7 @@ namespace KampusStudio.Models.Services.Application
             comuneViewModel.regione = (RegioneViewModel) regioneViewModel;
 
 
-            FormattableString queryPro = $"SELECT * FROM province WHERE codiceProvincia={comuneRow["provincia"]}";
+            FormattableString queryPro = $"SELECT * FROM province WHERE codiceProvincia={comuneRow["codiceProvincia"]}";
             DataSet dataSetPro = await db.QueryAsync(queryPro);
             var provinciaTable = dataSetPro.Tables[0];
             if (provinciaTable.Rows.Count != 1)
@@ -89,7 +89,7 @@ namespace KampusStudio.Models.Services.Application
             {
                 ComuneViewModel comune = ComuneViewModel.FromDataRow(comuneRow);
                 // Questo codice dovrebbe essere interamente sostituito con la funzione GetRegioneAsync -- INIZIO
-                FormattableString queryReg = $"SELECT * FROM regioni WHERE codiceRegione={comuneRow["regione"]}";
+                FormattableString queryReg = $"SELECT * FROM regioni WHERE codiceRegione={comuneRow["codiceRegione"]}";
                 DataSet dataSetReg = await db.QueryAsync(queryReg);
                 var regioneTable = dataSetReg.Tables[0];
                 if (regioneTable.Rows.Count != 1)
@@ -102,7 +102,7 @@ namespace KampusStudio.Models.Services.Application
                 comune.regione = (RegioneViewModel) regioneViewModel;
 
                 // Questo codice dovrebbe essere interamente sostituito con la funzione GetProvinciaAsync -- INIZIO
-                FormattableString queryPro = $"SELECT * FROM province WHERE codiceProvincia={comuneRow["provincia"]}";
+                FormattableString queryPro = $"SELECT * FROM province WHERE codiceProvincia={comuneRow["codiceProvincia"]}";
                 DataSet dataSetPro = await db.QueryAsync(queryPro);
                 var provinciaTable = dataSetPro.Tables[0];
                 if (provinciaTable.Rows.Count != 1)

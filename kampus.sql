@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `comuni` (
   `codiceCatastale` varchar(4) NOT NULL COMMENT 'Codice catastale',
   `nomeComune` varchar(30) NOT NULL COMMENT 'Nome comune',
-  `regione` int(11) NOT NULL COMMENT 'Regione',
-  `provincia` int(11) NOT NULL COMMENT 'Provincia',
+  `codiceRegione` int(11) NOT NULL COMMENT 'Regione',
+  `codiceProvincia` int(11) NOT NULL COMMENT 'Provincia',
   `flagRegione` int(1) NOT NULL,
   `flagProvincia` int(11) NOT NULL COMMENT 'Flag provincia',
   `abitanti` int(11) NOT NULL COMMENT 'Numero abitanti',
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `comuni` (
 -- Dump dei dati per la tabella `comuni`
 --
 
-INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
+INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `codiceRegione`, `codiceProvincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
 ('A001', 'Abano Terme', 5, 28, 0, 0, 19349, '049', '35031', '028001'),
 ('A004', 'Abbadia Cerreto', 3, 98, 0, 0, 297, '0371', '26834', '098001'),
 ('A005', 'Abbadia Lariana', 3, 97, 0, 0, 3249, '0341', '23821', '097001'),
@@ -782,7 +782,7 @@ INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `
 ('A937', 'Bolgare', 3, 16, 0, 0, 5760, '035', '24060', '016028'),
 ('A940', 'Bollate', 3, 15, 0, 0, 35557, '02', '20021', '015027'),
 ('A941', 'Bollengo', 1, 1, 0, 0, 2112, '0125', '10012', '001027');
-INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
+INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `codiceRegione`, `codiceProvincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
 ('A942', 'Nova Siri', 17, 77, 0, 0, 6596, '0835', '75020', '077018'),
 ('A944', 'Bologna', 8, 37, 1, 1, 371337, '051', '401xx', '037006'),
 ('A945', 'Bolognano', 13, 68, 0, 0, 1157, '085', '65020', '068003'),
@@ -1509,7 +1509,7 @@ INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `
 ('B894', 'Casalgrasso', 1, 4, 0, 0, 1448, '011', '12030', '004045'),
 ('B895', 'Casal Velino', 15, 65, 0, 0, 4938, '0974', '84040', '065028'),
 ('B896', 'Casalincontrada', 13, 69, 0, 0, 3153, '0871', '66012', '069016');
-INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
+INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `codiceRegione`, `codiceProvincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
 ('B897', 'Casalino', 1, 3, 0, 0, 1555, '0321', '28060', '003040'),
 ('B898', 'Casalmaggiore', 3, 19, 0, 0, 15111, '0375', '26041', '019021'),
 ('B899', 'Casalmaiocco', 3, 98, 0, 0, 3069, '02', '26831', '098009'),
@@ -2212,7 +2212,7 @@ INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `
 ('C807', 'Cocconato', 1, 5, 0, 0, 1564, '0141', '14023', '005042'),
 ('C810', 'Cocquio-Trevisago', 3, 12, 0, 0, 4756, '0332', '21034', '012053'),
 ('C811', 'Cocullo', 13, 66, 0, 0, 265, '0864', '67030', '066037');
-INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
+INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `codiceRegione`, `codiceProvincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
 ('C812', 'Codevigo', 5, 28, 0, 0, 6453, '049', '35020', '028033'),
 ('C813', 'Codevilla', 3, 18, 0, 0, 1000, '0383', '27050', '018051'),
 ('C814', 'Codigoro', 8, 38, 0, 0, 12389, '0533', '44021', '038005'),
@@ -2944,7 +2944,7 @@ INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `
 ('D811', 'Frosolone', 14, 94, 0, 0, 3255, '0874', '86095', '094022'),
 ('D812', 'Frossasco', 1, 1, 0, 0, 2840, '0121', '10060', '001110'),
 ('D813', 'Frugarolo', 1, 6, 0, 0, 2012, '0131', '15065', '006075');
-INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
+INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `codiceRegione`, `codiceProvincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
 ('D814', 'Fubine Monferrato', 1, 6, 0, 0, 1657, '0131', '15043', '006076'),
 ('D815', 'Fucecchio', 9, 48, 0, 0, 22785, '0571', '50054', '048019'),
 ('D817', 'Fuipiano Valle Imagna', 3, 16, 0, 0, 221, '035', '24030', '016106'),
@@ -3683,7 +3683,7 @@ INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `
 ('E786', 'Macherio', 3, 108, 0, 0, 7130, '039', '20846', '108029'),
 ('E787', 'Maclodio', 3, 17, 0, 0, 1501, '030', '25030', '017097'),
 ('E788', 'Macomer', 20, 91, 0, 0, 10511, '0785', '08015', '091044');
-INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
+INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `codiceRegione`, `codiceProvincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
 ('E789', 'Macra', 1, 4, 0, 0, 52, '0171', '12020', '004112'),
 ('E790', 'Macugnaga', 1, 103, 0, 0, 601, '0324', '28876', '103039'),
 ('E791', 'Maddaloni', 15, 61, 0, 0, 39409, '0823', '81024', '061048'),
@@ -4400,7 +4400,7 @@ INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `
 ('F707', 'Morano sul Po', 1, 6, 0, 0, 1511, '0142', '15025', '006109'),
 ('F708', 'Morano Calabro', 18, 78, 0, 0, 4615, '0981', '87016', '078083'),
 ('F709', 'Moransengo', 1, 5, 0, 0, 212, '0141', '14023', '005079');
-INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
+INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `codiceRegione`, `codiceProvincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
 ('F710', 'Moraro', 6, 31, 0, 0, 767, '0481', '34070', '031013'),
 ('F711', 'Morazzone', 3, 12, 0, 0, 4303, '0332', '21040', '012105'),
 ('F712', 'Morbegno', 3, 14, 0, 0, 11786, '0342', '23017', '014045'),
@@ -5134,7 +5134,7 @@ INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `
 ('G639', 'Pieve del Cairo', 3, 18, 0, 0, 2108, '0384', '27037', '018113'),
 ('G642', 'Pieve di Cadore', 5, 25, 0, 0, 3956, '0435', '32044', '025039'),
 ('G643', 'Pieve di Cento', 8, 37, 0, 0, 6895, '051', '40066', '037048');
-INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
+INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `CodiceRegione`, `codiceProvincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
 ('G645', 'Pieve di Soligo', 5, 26, 0, 0, 12057, '0438', '31053', '026057'),
 ('G646', 'Pieve Ligure', 7, 10, 0, 0, 2582, '010', '16030', '010043'),
 ('G647', 'Pieve d''Olmi', 3, 19, 0, 0, 1295, '0372', '26040', '019074'),
@@ -5864,7 +5864,7 @@ INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `
 ('H623', 'Rozzano', 3, 15, 0, 0, 39983, '02', '20089', '015189'),
 ('H625', 'Rubano', 5, 28, 0, 0, 15669, '049', '35030', '028072'),
 ('H627', 'Rubiana', 1, 1, 0, 0, 2417, '011', '10040', '001229');
-INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
+INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `codiceRegione`, `codiceProvincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
 ('H628', 'Rubiera', 8, 35, 0, 0, 14421, '0522', '42048', '035036'),
 ('H629', 'Ruda', 6, 30, 0, 0, 2995, '0431', '33050', '030098'),
 ('H630', 'Rudiano', 3, 17, 0, 0, 5699, '030', '25030', '017167'),
@@ -6534,7 +6534,7 @@ INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `
 ('I519', 'Scena', 4, 21, 0, 0, 2838, '0473', '39017', '021087'),
 ('I520', 'Scerni', 13, 69, 0, 0, 3399, '0873', '66020', '069087'),
 ('I522', 'Scheggia e Pascelupo', 10, 54, 0, 0, 1442, '075', '06027', '054046');
-INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
+INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `codiceRegione`, `codiceProvincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
 ('I523', 'Scheggino', 10, 54, 0, 0, 481, '0743', '06040', '054047'),
 ('I526', 'Schiavi di Abruzzo', 13, 69, 0, 0, 931, '0873', '66045', '069088'),
 ('I527', 'Schiavon', 5, 24, 0, 0, 2600, '0444', '36060', '024099'),
@@ -7270,7 +7270,7 @@ INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `
 ('L488', 'Ulà Tirso', 20, 95, 0, 0, 580, '0783', '09080', '095068'),
 ('L489', 'Ulassai', 20, 91, 0, 0, 1517, '0782', '08040', '105020'),
 ('L490', 'Ultimo', 4, 21, 0, 0, 2920, '0473', '39016', '021104');
-INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `regione`, `provincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
+INSERT INTO `comuni` (`codiceCatastale`, `nomeComune`, `codiceRegione`, `codiceProvincia`, `flagRegione`, `flagProvincia`, `abitanti`, `prefisso`, `cap`, `codiceIstat`) VALUES
 ('L492', 'Umbriatico', 18, 101, 0, 0, 929, '0962', '88823', '101026'),
 ('L494', 'Urago d''Oglio', 3, 17, 0, 0, 3877, '030', '25030', '017192'),
 ('L496', 'Uras', 20, 95, 0, 0, 2960, '0783', '09099', '095069'),
