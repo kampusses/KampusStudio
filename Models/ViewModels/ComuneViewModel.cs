@@ -15,6 +15,7 @@ namespace KampusStudio.Models.ViewModels
         public string prefisso {get; set;}
         public string belfiore {get; set;}
         public string cap {get; set;}
+        public string codiceIstat {get; set;}
 
         public static ComuneViewModel FromDataRow(DataRow comuneRow)
         {
@@ -29,7 +30,8 @@ namespace KampusStudio.Models.ViewModels
                 belfiore = (string) comuneRow["codiceCatastale"],
                 cap = (string) comuneRow["cap"],
                 flagProvincia = (int) comuneRow["flagProvincia"],
-                flagRegione = (int) comuneRow["flagRegione"]
+                flagRegione = (int) comuneRow["flagRegione"],
+                codiceIstat = (string) comuneRow["codiceIstat"]
             };
             return comuneViewModel;
         }
