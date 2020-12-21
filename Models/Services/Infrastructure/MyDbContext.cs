@@ -104,6 +104,15 @@ namespace kampus.Models.Services.Infrastructure
                     .HasColumnType("int(11)")
                     .HasColumnName("regione")
                     .HasComment("Regione");
+
+                entity.HasOne(comune => comune.Provincia)
+                      .WithMany(provincia => provincia.Comuni)
+                      .HasForeignKey(provincia => provincia.CodiceProvincia);
+
+                entity.HasOne(comune => comune.Regione)
+                      .WithMany(regione => regione.Comuni)
+                      .HasForeignKey(regione => regione.CodiceRegione);
+
             });
 
             modelBuilder.Entity<Provincia>(entity =>
@@ -135,6 +144,13 @@ namespace kampus.Models.Services.Infrastructure
                     .HasColumnName("siglaProvincia")
                     .HasCharSet("latin1")
                     .HasCollation("latin1_swedish_ci");
+
+                entity.HasMany(provincia => provincia.Comuni)
+                      .WithOne(comune => comune.Provincia)
+                      .HasForeignKey(comune => comune.CodiceProvincia);
+
+                entity.HasOne(provincia => provincia.Regione)
+                      .WithMany(regione => regione.Province); 
             });
 
             modelBuilder.Entity<Regione>(entity =>
@@ -171,6 +187,14 @@ namespace kampus.Models.Services.Infrastructure
                     .HasColumnType("int(11)")
                     .HasColumnName("ripartizioneGeografica")
                     .HasComment("Ripartizione geografica");
+
+                entity.HasMany(regione => regione.Comuni)
+                      .WithOne(comune => comune.Regione)
+                      .HasForeignKey(comune => comune.CodiceRegione);
+                    
+                entity.HasMany(regione => regione.Province)
+                      .WithOne(provincia => provincia.Regione)
+                      .HasForeignKey(provincia => provincia.CodiceRegione);
             });
 
             OnModelCreatingPartial(modelBuilder);

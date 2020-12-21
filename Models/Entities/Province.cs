@@ -12,7 +12,7 @@ namespace kampus.Models.Entities
         public string NomeProvincia { get; private set; }
         public string SiglaProvincia { get; private set; }
 
-        public virtual Comune Comune { get; private set; }
+        public virtual ICollection<Comune> Comuni { get; private set; }
         public virtual Regione Regione { get; private set; }
     }
 }

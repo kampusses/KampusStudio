@@ -12,7 +12,7 @@ namespace kampus.Models.Entities
         public int RipartizioneGeografica { get; private set; }
         public string CodiceCapoluogo { get; private set; }
 
-        public virtual Comune Comune { get; private set; }
-        public virtual Provincia Provincia { get; private set; }
+        public virtual ICollection<Comune> Comuni { get; private set; }
+        public virtual ICollection<Provincia> Province { get; private set; }
     }
 }
